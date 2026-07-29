@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean.PhaseSpaceFlow
+import DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean.GlobalGroundLemma
+import DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean.InvariantManifold
+import DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean.ErgodicTheory
+import DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean.BifurcationTheory
+
+namespace HautevilleHouse
+namespace DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean
+
+def ConstrainedDynamicalSystemsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_dynamical_systems_endgame (A : AdmissibleClass) :
+    ConstrainedDynamicalSystemsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DynamicalSystemsOverGlobalGroundLemmaCanonicalLaneLean
+end HautevilleHouse
